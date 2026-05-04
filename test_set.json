@@ -1,3 +1,82 @@
 [
-  {"question": "hihi cả nhà tự tạo testset bằng cơm nhé", "ground_truth": "Không kịp tạo luôn"},
+  {
+    "question": "Công ty DHA Surfaces kê khai thuế GTGT kỳ nào?",
+    "ground_truth": "Công ty DHA Surfaces kê khai thuế GTGT cho Quý 4 năm 2024."
+  },
+  {
+    "question": "Mã số thuế của Công ty Cổ phần DHA Surfaces là bao nhiêu?",
+    "ground_truth": "Mã số thuế của Công ty Cổ phần DHA Surfaces là 0106769437."
+  },
+  {
+    "question": "Thuế GTGT còn được khấu trừ từ kỳ trước chuyển sang là bao nhiêu?",
+    "ground_truth": "Thuế GTGT còn được khấu trừ từ kỳ trước chuyển sang là 77.377.803 đồng (chỉ tiêu [22])."
+  },
+  {
+    "question": "Tổng giá trị hàng hóa dịch vụ mua vào trong kỳ là bao nhiêu?",
+    "ground_truth": "Tổng giá trị hàng hóa dịch vụ mua vào trong kỳ là 2.405.743.241 đồng (chỉ tiêu [23])."
+  },
+  {
+    "question": "Thuế GTGT của hàng hóa dịch vụ mua vào được khấu trừ kỳ này là bao nhiêu?",
+    "ground_truth": "Thuế GTGT của hàng hóa dịch vụ mua vào được khấu trừ kỳ này là 215.163.767 đồng (chỉ tiêu [25])."
+  },
+  {
+    "question": "Doanh thu hàng hóa dịch vụ bán ra chịu thuế suất 10% là bao nhiêu?",
+    "ground_truth": "Doanh thu hàng hóa dịch vụ bán ra chịu thuế suất 10% là 3.703.685.610 đồng (chỉ tiêu [32]), thuế GTGT tương ứng là 344.675.400 đồng (chỉ tiêu [33])."
+  },
+  {
+    "question": "Thuế GTGT phát sinh trong kỳ của Công ty DHA Surfaces là bao nhiêu?",
+    "ground_truth": "Thuế GTGT phát sinh trong kỳ là 129.511.633 đồng (chỉ tiêu [36] = [35] - [25])."
+  },
+  {
+    "question": "Công ty DHA Surfaces phải nộp bao nhiêu tiền thuế GTGT trong kỳ?",
+    "ground_truth": "Thuế GTGT còn phải nộp trong kỳ là 52.133.830 đồng (chỉ tiêu [40])."
+  },
+  {
+    "question": "Ai là người đại diện hợp pháp nộp tờ khai thuế cho Công ty DHA Surfaces?",
+    "ground_truth": "Người nộp thuế/Đại diện hợp pháp là TRỊNH THỊ SANG, tờ khai được ký điện tử bởi CÔNG TY CỔ PHẦN DHA SURFACES vào ngày 24 tháng 01 năm 2025."
+  },
+  {
+    "question": "Nghị định 13/2023/NĐ-CP quy định về vấn đề gì?",
+    "ground_truth": "Nghị định 13/2023/NĐ-CP quy định về bảo vệ dữ liệu cá nhân và trách nhiệm bảo vệ dữ liệu cá nhân của cơ quan, tổ chức, cá nhân có liên quan."
+  },
+  {
+    "question": "Dữ liệu cá nhân nhạy cảm là gì theo Nghị định 13/2023?",
+    "ground_truth": "Dữ liệu cá nhân nhạy cảm là dữ liệu cá nhân gắn liền với quyền riêng tư của cá nhân mà khi bị xâm phạm sẽ gây ảnh hưởng trực tiếp tới quyền và lợi ích hợp pháp của cá nhân, gồm quan điểm chính trị, tôn giáo; tình trạng sức khỏe; nguồn gốc chủng tộc, dân tộc; đặc điểm di truyền; thuộc tính vật lý, sinh học; đời sống tình dục; dữ liệu về tội phạm; thông tin khách hàng tổ chức tín dụng; dữ liệu vị trí; và các dữ liệu cá nhân đặc thù khác."
+  },
+  {
+    "question": "Chủ thể dữ liệu có những quyền gì theo Nghị định 13/2023?",
+    "ground_truth": "Theo Điều 9 Nghị định 13/2023, chủ thể dữ liệu có 11 quyền: quyền được biết, quyền đồng ý, quyền truy cập, quyền rút lại sự đồng ý, quyền xóa dữ liệu, quyền hạn chế xử lý dữ liệu, quyền cung cấp dữ liệu, quyền phản đối xử lý dữ liệu, quyền khiếu nại/tố cáo/khởi kiện, quyền yêu cầu bồi thường thiệt hại, và quyền tự bảo vệ."
+  },
+  {
+    "question": "Thời hạn thực hiện yêu cầu hạn chế xử lý dữ liệu cá nhân là bao lâu?",
+    "ground_truth": "Việc hạn chế xử lý dữ liệu được thực hiện trong 72 giờ sau khi có yêu cầu của chủ thể dữ liệu (Điều 9, khoản 6b)."
+  },
+  {
+    "question": "Sự im lặng của chủ thể dữ liệu có được coi là sự đồng ý không?",
+    "ground_truth": "Không. Theo Điều 11 khoản 6 Nghị định 13/2023, sự im lặng hoặc không phản hồi của chủ thể dữ liệu không được coi là sự đồng ý."
+  },
+  {
+    "question": "Khi phát hiện vi phạm bảo vệ dữ liệu cá nhân, phải thông báo cho cơ quan nào trong thời hạn bao lâu?",
+    "ground_truth": "Khi phát hiện vi phạm, Bên Kiểm soát dữ liệu cá nhân phải thông báo cho Bộ Công an (Cục An ninh mạng và phòng, chống tội phạm sử dụng công nghệ cao) chậm nhất 72 giờ sau khi xảy ra hành vi vi phạm (Điều 23)."
+  },
+  {
+    "question": "Cơ quan chuyên trách bảo vệ dữ liệu cá nhân tại Việt Nam là cơ quan nào?",
+    "ground_truth": "Cơ quan chuyên trách bảo vệ dữ liệu cá nhân là Cục An ninh mạng và phòng, chống tội phạm sử dụng công nghệ cao - Bộ Công an (Điều 29)."
+  },
+  {
+    "question": "Hồ sơ đánh giá tác động xử lý dữ liệu cá nhân phải gửi Bộ Công an trong thời hạn bao nhiêu ngày?",
+    "ground_truth": "Hồ sơ đánh giá tác động xử lý dữ liệu cá nhân phải gửi Bộ Công an trong thời gian 60 ngày kể từ ngày tiến hành xử lý dữ liệu cá nhân (Điều 24, khoản 4)."
+  },
+  {
+    "question": "Dữ liệu cá nhân cơ bản gồm những loại thông tin nào?",
+    "ground_truth": "Dữ liệu cá nhân cơ bản bao gồm: họ tên, ngày sinh, giới tính, nơi sinh/cư trú, quốc tịch, hình ảnh, số điện thoại/CMND/hộ chiếu/giấy phép lái xe/mã số thuế/bảo hiểm xã hội, tình trạng hôn nhân, thông tin gia đình, thông tin tài khoản số và lịch sử hoạt động mạng, và các thông tin khác giúp xác định một con người cụ thể (Điều 2, khoản 3)."
+  },
+  {
+    "question": "Việc xóa dữ liệu cá nhân theo yêu cầu của chủ thể dữ liệu phải hoàn thành trong bao lâu?",
+    "ground_truth": "Việc xóa dữ liệu được thực hiện trong 72 giờ sau khi có yêu cầu của chủ thể dữ liệu với toàn bộ dữ liệu cá nhân đã thu thập được (Điều 16, khoản 5)."
+  },
+  {
+    "question": "Nghị định 13/2023 áp dụng cho những đối tượng nào?",
+    "ground_truth": "Nghị định áp dụng cho: cơ quan/tổ chức/cá nhân Việt Nam; cơ quan/tổ chức/cá nhân nước ngoài tại Việt Nam; cơ quan/tổ chức/cá nhân Việt Nam hoạt động ở nước ngoài; và cơ quan/tổ chức/cá nhân nước ngoài tham gia hoặc liên quan đến hoạt động xử lý dữ liệu cá nhân tại Việt Nam (Điều 1, khoản 2)."
+  }
 ]
