@@ -5,7 +5,8 @@ from dataclasses import dataclass
 
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from config import (QDRANT_HOST, QDRANT_PORT, COLLECTION_NAME, EMBEDDING_MODEL,
-                    EMBEDDING_DIM, BM25_TOP_K, DENSE_TOP_K, HYBRID_TOP_K)
+                    EMBEDDING_DIM, OLLAMA_API_URL, BM25_TOP_K, DENSE_TOP_K, HYBRID_TOP_K)
+import requests
 
 
 @dataclass
@@ -65,14 +66,24 @@ class BM25Search:
 class DenseSearch:
     def __init__(self):
         from qdrant_client import QdrantClient
-        self.client = QdrantClient(host=QDRANT_HOST, port=QDRANT_PORT)
-        self._encoder = None
+        # Use memory to avoid requiring a running Qdrant server for the test
+        self.client = QdrantClient(location=":memory:")
 
-    def _get_encoder(self):
-        if self._encoder is None:
-            from sentence_transformers import SentenceTransformer
-            self._encoder = SentenceTransformer(EMBEDDING_MODEL)
-        return self._encoder
+    def _get_embedding(self, text: str) -> list[float]:
+        response = requests.post(
+            OLLAMA_API_URL,
+            json={"model": EMBEDDING_MODEL, "prompt": text}
+        )
+        response.raise_for_status()
+        return response.json()["embedding"]
+
+    def _get_embeddings(self, texts: list[str]) -> list[list[float]]:
+        # Ollama's /api/embeddings endpoint only processes one prompt at a time 
+        # (in standard setup). So we loop through texts.
+        embeddings = []
+        for text in texts:
+            embeddings.append(self._get_embedding(text))
+        return embeddings
 
     def index(self, chunks: list[dict], collection: str = COLLECTION_NAME) -> None:
         """Index chunks into Qdrant."""
@@ -85,13 +96,13 @@ class DenseSearch:
             return
 
         texts = [c["text"] for c in chunks]
-        vectors = self._get_encoder().encode(texts, show_progress_bar=True)
+        vectors = self._get_embeddings(texts)
         
         points = []
         for i, (v, c) in enumerate(zip(vectors, chunks)):
             points.append(PointStruct(
                 id=i,
-                vector=v.tolist(),
+                vector=v,
                 payload={**c.get("metadata", {}), "text": c.get("text", "")}
             ))
             
@@ -99,8 +110,8 @@ class DenseSearch:
 
     def search(self, query: str, top_k: int = DENSE_TOP_K, collection: str = COLLECTION_NAME) -> list[SearchResult]:
         """Search using dense vectors."""
-        query_vector = self._get_encoder().encode(query).tolist()
-        hits = self.client.search(collection_name=collection, query_vector=query_vector, limit=top_k)
+        query_vector = self._get_embedding(query)
+        hits = self.client.query_points(collection_name=collection, query=query_vector, limit=top_k).points
         
         results = []
         for hit in hits:

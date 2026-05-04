@@ -1,0 +1,25 @@
+{
+  "aggregate": {
+    "faithfulness": 0.5,
+    "answer_relevancy": 0.0,
+    "context_precision": 0.0,
+    "context_recall": 0.0
+  },
+  "num_questions": 2,
+  "failures": [
+    {
+      "question": "Thời gian làm việc như thế nào?",
+      "worst_metric": "faithfulness",
+      "score": 0.0,
+      "diagnosis": "LLM hallucinating",
+      "suggested_fix": "Tighten prompt, lower temperature"
+    },
+    {
+      "question": "Nhân viên được nghỉ phép bao nhiêu ngày?",
+      "worst_metric": "answer_relevancy",
+      "score": 0.0,
+      "diagnosis": "Answer doesn't match question",
+      "suggested_fix": "Improve prompt template"
+    }
+  ]
+}
